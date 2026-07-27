@@ -34,6 +34,7 @@ class Solution {
     }
     public void preorder(TreeNode root,List<Integer> curr,int x,int lvl){
         if(root==null) return;
+        if(lvl>x)return;
         if(lvl==x){
             curr.add(root.val);
         }
