@@ -1,24 +1,20 @@
 class Solution {
-    public int missingNumber(int[] arr) {
+    public int missingNumber(int[] nums) {
+        int n=nums.length;
         int i=0;
-        while(i<arr.length){
-            if(i==arr[i] ||arr[i]==arr.length)i++;
+        while(i<n){
+            if(nums[i]==n || i==nums[i] )i++;
             else{
-                swap(i,arr[i],arr);
+                int temp=nums[nums[i]];
+                nums[nums[i]]=nums[i];
+                nums[i]=temp;
             }
         }
-        for(int k=0;k<arr.length;k++){
-            if(k!=arr[k]){
-                return k;
+        for(int j=0;j<n;j++){
+            if(j!=nums[j]){
+                return j;
             }
         }
-        return arr.length;
-        }
-    public static void swap(int i,int j,int[]arr){
-        int temp=arr[i];
-        arr[i]=arr[temp];
-        arr[temp]=temp;
-    }    
-        
+        return n;
     }
-    
+}
